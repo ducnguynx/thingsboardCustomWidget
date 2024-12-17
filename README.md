@@ -1,8 +1,8 @@
 #### Update via MQTT  
 ```
-mosquitto_pub -d -h "demo.thingsboard.io" -t "v1/devices/me/attributes" -u "<token>" -f "values.json" 
+mosquitto_pub -d -h "demo.thingsboard.io" -t "v1/devices/me/attributes" -u "<token>" -f "<yourjsonfile>.json" 
 ```
-replace "\<token\>" with your token
+replace "\<token\>" with your token & "\<yourjsonfile\>.json" with your JSON file
 ### Add the widget to your dashboard  
 ![Alt text](images/Widget.png)  
 ### Modify the input attribute value  
