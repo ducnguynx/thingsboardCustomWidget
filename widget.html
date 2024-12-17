@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table {
+            width: 60%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Wi-Fi Infos</h1>
+    <!-- Container to hold the table -->
+    <div id="table-container" style="text-align: center;"></div>
+
+    <script>
+        // Dynamic JSON data (this can be updated with new data)
+        var jsonData = ${#0:0};
+       
+        // Function to create and display the table
+        function createTable(data) {
+            // Create the table and header row
+            var table = document.createElement('table');
+            var headerRow = document.createElement('tr');
+
+            // Define the headers
+            var headers = ['MAC Address', 'Beacon', 'ProbeReq','ProbeRes','AssocReq','AssocRes','Auth','Ack','Rts','PsPoll','Cts','Data','QosData','Others','SSID'];
+            for (var i = 0; i < headers.length; i++) {
+                var th = document.createElement('th');
+                th.innerText = headers[i];
+                headerRow.appendChild(th);
+            }
+            table.appendChild(headerRow);
+
+            // Add rows dynamically for each object in the JSON data
+            for (var j = 0; j < data.key.length; j++) {
+                var entry = data.key[j];
+                var row = document.createElement('tr');
+
+                // Create and append each cell to the row
+                var macCell = document.createElement('td');
+                macCell.innerText = entry.mac;
+                row.appendChild(macCell);
+
+                var beaconCell = document.createElement('td');
+                beaconCell.innerText = entry.beacon;
+                row.appendChild(beaconCell);
+
+                var probeReqCell = document.createElement('td');
+                probeReqCell.innerText = entry.probeReq;
+                row.appendChild(probeReqCell);
+
+                var probeResCell = document.createElement('td');
+                probeResCell.innerText = entry.probeRes;
+                row.appendChild(probeResCell);
+                var assocReqCell = document.createElement('td');
+                assocReqCell.innerText = entry.assocReq;
+                row.appendChild(assocReqCell);
+                var assocResCell = document.createElement('td');
+                assocResCell.innerText = entry.assocRes;
+                row.appendChild(assocResCell);
+                var authCell = document.createElement('td');
+                authCell.innerText = entry.auth;
+                row.appendChild(authCell);
+
+                var ackCell = document.createElement('td');
+                ackCell.innerText = entry.ack;
+                row.appendChild(ackCell);
+
+                var rtsCell = document.createElement('td');
+                rtsCell.innerText = entry.rts;
+                row.appendChild(rtsCell);
+
+                var psPollCell = document.createElement('td');
+                psPollCell.innerText = entry.psPoll;
+                row.appendChild(psPollCell);
+
+                var ctsCell = document.createElement('td');
+                ctsCell.innerText = entry.cts;
+                row.appendChild(ctsCell);
+
+                var dataCell = document.createElement('td');
+                dataCell.innerText = entry.data;
+                row.appendChild(dataCell);
+
+                var qosDataCell = document.createElement('td');
+                qosDataCell.innerText = entry.qosData;
+                row.appendChild(qosDataCell);
+
+                var othersCell = document.createElement('td');
+                othersCell.innerText = entry.others;
+                row.appendChild(othersCell);
+
+                var ssidCell = document.createElement('td');
+                ssidCell.innerText = entry.ssid;
+                row.appendChild(ssidCell);
+                
+                // Append the row to the table
+                table.appendChild(row);
+            }
+
+            // Append the table to the container in the HTML
+            var container = document.getElementById('table-container');
+            container.innerHTML = ''; // Clear existing content
+            container.appendChild(table);
+        }
+
+        // Call the function to create the table
+        createTable(jsonData);
+
+    </script>
+</body>
+</html>
