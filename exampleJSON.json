@@ -1,0 +1,40 @@
+{
+  "key": {
+    "key": [
+      {
+        "mac": "00:11:22:33:44:55",
+        "beacon": 220,
+        "probeReq": 2000,
+        "probeRes":1,
+        "assocReq":1,
+        "assocRes":1,
+        "auth":0,
+        "ack":0,
+        "rts":0,
+        "psPoll":1,
+        "cts":0,
+        "data":0,
+        "qosData":1,
+        "others":0,
+        "ssid":"unknown"
+      },
+      {
+        "mac": "du:ca:nh:23:76:14",
+        "beacon": 220,
+        "probeReq": 2000,
+        "probeRes":1,
+        "assocReq":1,
+        "assocRes":1,
+        "auth":0,
+        "ack":0,
+        "rts":0,
+        "psPoll":1,
+        "cts":0,
+        "data":0,
+        "qosData":1,
+        "others":0,
+        "ssid":"ok"
+      }
+    ]
+  }
+}
